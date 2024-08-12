@@ -57,7 +57,8 @@
     "rehype-stringify": "^8.0.0",
     "twin.macro": "^2.6.2",
     "typeface-barlow": "0.0.71",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "husky": "^7.0.2",
@@ -85,11 +86,13 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "npm run snyk-protect && husky install",
+    "snyk-protect": "snyk-protect"
   },
   "lint-staged": {
     "**/*.{js,jsx,json,md}": [
       "prettier --write"
     ]
-  }
+  },
+  "snyk": true
 }
